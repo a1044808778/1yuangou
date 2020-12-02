@@ -1,0 +1,207 @@
+a,blockquote,body,code,dd,div,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,iframe,img,input,label,li,object,ol,p,q,small,span,strong,table,tbody,td,th,tr,ul {margin:0;padding:0;border:0}
+body {font-family:'DIN','PingFang SC','Microsoft YaHei','Helvetica,Arial',sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;background:#F6F8F9; overflow-y:scroll }
+a,a:active,a:focus,a:hover,a:visited {text-decoration:none}
+a,img {-webkit-touch-callout:none}
+li,ol,ul {list-style:none}
+i{font-style: normal;}
+table,tr,td{ border-collapse:collapse;}
+input[type=password],input[type=text],textarea {resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+.clearfix:after {display:block;clear:both;content:"";visibility:hidden;height:0}
+/* *{-webkit-touch-callout:none;  -webkit-user-select:none;    -khtml-user-select:none; -moz-user-select:none; -ms-user-select:none;user-select:none;} */
+button{ cursor: pointer;}
+button:hover{ opacity: 0.9;}
+body,html a {color:#333333}
+body{    overflow-y: scroll;}
+.hidden {display:none!important}
+.noright{ float: none !important;}
+/* login */
+.loginBox{ background: #FFF; padding:40px 15px 15px 15px}
+.loginBox h1{ font-size: 27px; line-height: 38px;}
+.loginBox .litem{ overflow: hidden; display: flex;margin-top: 27px; }
+.loginBox .litem input{ height: 44px; background: #F5F5F5; padding: 0 18px;  box-sizing: border-box;}
+.loginBox .litem input.in01{ width:345px ;}
+.loginBox .litem input.in02{ width:252px ;}
+.loginBox .litem input.in03{ width:252px ;}
+.loginBox .litem .code{ width: 92px; height: 43px;}
+.loginBox .litem .code canvas{width: 92px; height: 43px;}
+.loginBox .litem button.send{  cursor: pointer;width: 92px; background: #F5F5F5;   height: 44px; line-height: 44px; text-align: center; font-size:13px ; color: #333; display: block; border: 0px;}
+.loginBox .btnLogin{width:345px ; border: 0px;margin-top: 27px;height: 54px; background: #003EA9; font-size: 16px; color: #FFFFFF;  cursor: pointer;}
+.loginBox .btnLogin:disabled{ color: #999999; background: #EEEEEE;}
+.loginBox .lread{ font-size: 12px; margin-top: 20px; height: 14px; line-height: 14px; align-items: center;}
+.loginBox .lread img{ width: 14px ; height: 14px; vertical-align: middle;}
+.loginBox .lread a{ color: #003EA9; font-weight: bold;}
+
+
+
+
+/*no*/
+.mainApp{ padding-top: 46px;}
+.wap-wrap {width:375px;margin:0 auto;font-size:14px; }
+.banner{width: 375px; height: 317px; position: relative;}
+.banner img.bannerImg{ width: 100%;}
+.userBox{ position: absolute;width:157px;height:65px; top: 0; left: 0; z-index: 9;}
+.userBox p { position: relative;}
+.userBox p span{ position: absolute; height:65px ; display: block; font-size: 12px;; line-height: 60px; width: 100px; text-align: center; right: 10px; top: 0;}
+.userBox p img{ width: 100%;}
+.helpBox{ position: absolute; width: 90px; height: 40px;  right: 0; top: 10px; cursor: pointer;}
+.banner .btnOrder{position: absolute; width: 375px; height: 46px; line-height: 46px; bottom: 0; text-align: center; font-size: 14px; background-size: 100% auto; background-image: url(../images/orderBannerBg.png); background-position: center center; background-repeat: no-repeat; cursor: pointer;}
+
+.proList{ background: url(../images/listbg.png) repeat-y center top; padding: 15px; box-sizing: border-box;}
+.proList dl{ overflow: hidden; background-color: #FFF; border-radius:8px; height: 93px; padding: 7px 10px; box-sizing: border-box; margin-bottom: 15px;}
+.proList dl:hover{ background-color: #FCFCFC;}
+.proList dl dt{ float: left; width: 79px; height: 79px; background: #FFF; text-align: center; justify-items: center; display: flex; align-items: center;}
+.proList dl dt img{ width:75px; }
+.proList dl dd{ float: right; width: 220px;}
+.proList dl dd h3{ line-height: 2.7em;}
+.proList dl dd p{color: #646464;}
+
+
+/* visaBanner */
+.visaBanner{width: 375px; height: 198px; position: relative;}
+.visaBanner img.bannerImg{ width: 100%;}
+.btnVisaOrder{ margin: 5px 0;  width: 375px; height: 73px; line-height: 70px; text-align: center; font-size: 14px; background-size: 100% auto; background-image: url(../images/visaBannerBg.png); background-position: center center; background-repeat: no-repeat; cursor: pointer; color: #333;}
+.visaProList{ background: #F6F7F9;}
+.visaNav{ display: flex; padding-bottom: 10px;}
+.visaNav span{ cursor: pointer; flex: 1; display: block; position: relative; text-align: center; color: #333; font-size: 14px; height: 20px;}
+.visaNav span.cur{ font-weight: bold; font-size: 15px; color: #007AFF;}
+.visaNav span.cur::before{ position: absolute; content: ''; background: url(../images/visaNavCurBg.png) no-repeat; width: 18px; height:6px; background-size: 100%; bottom: -10px; left: 50%; margin-left: -9px;}
+.visaProList dl{  box-shadow: 0px 2px 8px rgba(69, 91, 99, 0.16);}
+
+
+/* ruleBox */
+.ruleBox{ padding: 15px;}
+.ruleCont{ background-color: #FFF;}
+.ruleCont p{ line-height: 2em;}
+/* detailBox */
+.detailWarp{ background-color: #F5F5F5; margin: 15px auto;}
+.detailBox{ display: flex; width: 345px; margin: 0 auto; height: 110px; border-radius: 8px; background: #FFF; padding: 7px 9px; box-sizing: border-box;}
+.detailBox dt{  width: 95px; height: 95px;display: flex; align-items: center;}
+.detailBox dt img{ width: 100%; border-radius: 5px;}
+.detailBox dd{  width: 220px; margin-left: auto;}
+.detailBox dd h3{ font-size:15px; width: 132px; position: relative; height: 42px; overflow: hidden;}
+.detailBox dd h3 span{  position: absolute; right: -87px; top: 4px; font-size: 12px;}
+.detailBox dd h5{ font-size: 12px; color:#999999; text-decoration: line-through; line-height: 2.4em; padding-top: 4px;}
+.detailBox dd p{ line-height: 2em; font-size: 12px; color: #007AFF;}
+.detailBox dd p strong{ float: right;  color: #FF3B30; font-size: 20px; line-height: 1em;}
+.detailBox dd p span{ font-size: 12px;}
+.detailCont{ background-color: #FFF;  box-sizing: border-box; padding: 15px;width: 345px; margin: 15px auto; border-radius: 8px; }
+.detailCont h3{ font-size: 14px; line-height: 2em;}
+.detailCont p{ font-size: 12px; line-height: 2em;}
+.buyBtn{width: 345px; display: block; color: #FFF; border-radius: 49px; border: 0; height: 49px; background: linear-gradient(140deg, #FF5E61 0%, #FF3B30 100%); margin: 0 auto 15px auto;}
+.detailInput{ font-size: 12px; display: flex; background-color: #FFF;  height: 64px; line-height: 34px; box-sizing: border-box; padding: 15px;width: 345px; margin: 15px auto;border-radius: 8px;}
+.detailInput input{ background: #F5F5F5; padding-left: 15px; width: 235px; height: 34px;}
+
+/* orderlist */
+.orderListBox{ background: #F6F7F9;}
+.orderNav{ background: #FFF; display: flex; height: 48px; line-height: 44px;}
+.orderNav span{ cursor: pointer; flex: 1; display: block; position: relative; text-align: center; color: #333; font-size: 13px; height: 20px;}
+.orderNav span.cur{ font-weight: bold; font-size: 14px; color: #007AFF;}
+.orderNav span.cur::before{ position: absolute; content: ''; width: 22px; height:2px /*no*/; border-radius: 2px; background-color: #007AFF; background-size: 100%; bottom: -18px; left: 50%; margin-left: -11px;}
+.orderList{ margin:13px 15px;}
+.orderDetailBox{ display: flex; width: 345px; margin: 15px auto 0 auto; height: 110px; border-radius: 8px; background: #FFF; padding: 13px; box-sizing: border-box;}
+.orderDetailBox:hover{ background-color: #FCFCFC;}
+.orderDetailBox dt{  width: 95px; height: 95px; display: flex; align-items: center;}
+.orderDetailBox dt img{ width: 100%; border-radius: 5px;}
+.orderDetailBox dd{ width: 220px; margin-left: auto; position: relative;}
+.orderDetailBox dd h3{ font-size:15px; width: 132px; padding-top: 2px; position: relative; height: 40px;}
+.orderDetailBox dd h3 span{  position: absolute; right: -87px; top: 4px; font-size: 12px;}
+span.clrCencel{color: #999999 !important;}
+span.clrOk{color: #333 !important;}
+span.clrPay{color: #007AFF !important; font-weight: bold;}
+.orderDetailBox dd h5{ font-size: 12px; line-height: 2.1em;color:#999999; font-weight: normal; }
+.orderDetailBox dd h5 span{text-decoration: line-through; float: right;  }
+.orderDetailBox dd p{ line-height: 2em; font-size: 12px; color: #007AFF;}
+.orderDetailBox dd p strong{ float: right;color: #FF3B30; font-size: 20px; line-height: 1em;}
+.orderDetailBox dd p span{ font-size: 12px;}
+.orderDetailBox.novisa h5{ position: absolute; bottom: 0; width: 100%;}
+
+/* orderDetail */
+.pb140{ padding-bottom:140px;}
+.pb80{ padding-bottom:80px;}
+.orderInfo{width: 345px; margin: 15px auto 0 auto; border-radius: 8px; background: #FFF; padding: 7px 14px; box-sizing: border-box;  overflow: hidden; clear: both;}
+.orderInfo .orderListItem{ display: flex; font-size: 13px; line-height: 30px;}
+.orderInfo .orderListItem label{ color: #999;}
+.orderInfo .orderListItem p{ margin-left: auto; }
+.pay{ float: right;  color: #FF3B30; font-size: 20px;}
+.pay span{ font-size: 13px;}
+.orderListItem .code{ font-size: 18px; font-weight: bold;}
+.exchange{ display: block; width: 315px; height: 36px; background: #EEEEEE !important; opacity: 1; border-radius: 6px; text-align: center; margin: 5px 0 5px 0; color: #999; font-size:12px
+;}
+.orderBtnBox{ position: fixed; bottom: 0; left: 15px; background-color: #F5F5F5; padding-top: 15px; width: 375px;left: 50%;transform: translate3d(-50%,0,0);}
+.orderBtnBox .buyBtn{ height: 49px;}
+.orderBtnBox .btnBuy{ background: linear-gradient(146deg, #FF5E61 0%, #FF3B30 100%);}
+.orderBtnBox .btnReceive{ background:#007AFF;}
+.orderBtnBox .btnBack{ background:none; border: 1px solid #999; color: #333333;}
+.orderBtnBox .btnDelete{ background:#EEE; color: #999;}
+.cancelBox{ overflow: hidden; margin-top: 15px; text-align: right;}
+.cancelBox .btnCancel{ background:none; border: 1px solid #999; color: #333333; width:110px ; height: 40px; float: right;}
+
+/* alert */
+.van-popup{ border-radius: 10px; background: none;} 
+.alertBox{ overflow: hidden; width: 267px; height: 340px; background: url(../images/alertbg.png) no-repeat; background-size: 100%; position: relative;}
+.alertBox .close{ border: none; position: absolute; content: ''; background: url(../images/close.png) no-repeat; width: 23px; height:23px; background-size: 100%; bottom: -0px; left: 50%; margin-left: -9px;}
+.alertBox h1{ font-size:20px; color: #0F0F0F; text-align: center; margin-top: 120px;}
+.alertBox p{width: 204px; height: 56px; font-size: 13px; color: #999; text-align: center; margin: 10px auto;}
+.alertConfirmBox{ overflow: hidden; width: 267px; height: 244px; background: url(../images/alertbg2.png) no-repeat; background-size: 100%; position: relative;}
+.alertConfirmBox h1{   margin-top: 90px;}
+.alertBtnBox{ display: flex; }
+.alertBtnBox button{min-width: 111px; height: 33px;border-radius: 17px; }
+.alertBtnBox .cancel{border: 1px solid #999999; margin: 0 5px 0 20px; }
+.alertBtnBox .delete{border: 1px solid #666666; background: #666666; margin: 0 20px 0 5px; color: #FFF;}
+.alertBtnBox .normal{border: 1px solid #999999; margin: 0 auto;  width:230px; position: absolute; bottom: 50px; left: 50%; margin-left: -115px;}
+
+
+/* pay */
+.payDetailWarp { background-color: #FFF; overflow: hidden;}
+.payDetailBox{background: url(../images/paybg.png) no-repeat; width: 345px; height: 105px; margin: 18px auto; background-size: 100%; padding:15px; box-sizing: border-box;}
+.payDetailBox  p{font-size: 12px; color: #007AFF; margin: 15px 0 2px 0;}
+.payDetailBox h3{line-height: 21px; display: flex; font-weight: bold;font-size: 15px;}
+.payDetailBox h3 span{ margin-left: auto;color: #007AFF;}
+.payDetailBox h5{ text-decoration: none; }
+.oprice{ text-decoration: line-through; font-size: 12px; color: #999999;}
+.payWays{ width: 345px; border: 1px solid #999; background: #FFF; border-radius:8px ; box-sizing: border-box; margin: 0 auto 18px auto; padding:15px 15px 5px 15px;}
+.payWays h3{ margin-bottom: 12px;}
+.payWays .van-radio{ margin: 10px 0;}
+.payWays dl  { display: flex;}
+.payWays dl img{ width: 34px; height: 34px;}
+.payWays dl dd{ padding-left: 18px; line-height: 34px; color: #000; font-size:15px;}
+.payWays .van-radio{ display: block; }
+.payWays .van-radio__icon {float: right; margin-top: 7px;}
+.payWays .van-radio__icon .van-icon{ float: right;}
+.payWays .van-radio__label{ float: left; margin-left: 0;}
+.payDetail{ padding: 15px;}
+.payDetail h3{ font-size: 14px; line-height: 2em;}
+.payDetail p{ font-size: 13px; line-height: 2em;}
+.guideBox{ display: flex;}
+.guideBox p{ padding:2px 5px; flex: 1;}
+.guideBox img{ width:100%;}
+.payBtnbox{ display: flex; position: fixed; bottom:0; width: 375px; background: #FFF; padding:15px 19px ; }
+.payBtnbox button,.payBtnbox a{width: 159px; height: 48px; border-radius: 25px; text-align: center; line-height: 48px;}
+.payBtnbox .goCard{border: 1px solid #999999; background: #FFF; margin: 0 10px 0 0px; }
+.payBtnbox .submit{border: 0px solid #666666; background: linear-gradient(143deg, #FF5E61 0%, #FF3B30 100%); margin: 0 0 0 10px; color: #FFF;}
+.popupBox{ background-color: #FFF; height: 100%; padding:30px  15px; box-sizing: border-box; line-height: 2em;} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.van-nav-bar--fixed{ z-index: 20;}
+.van-nav-bar .van-icon{ color: #333; font-weight: bold;}
+
+
+
+
+
+
+
+
+
