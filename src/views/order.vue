@@ -121,6 +121,7 @@ export default {
        //进入页面修改标题
         this.$emit('chageTitle','订单详情'+this.$addTitle);
         this.$emit('chageBack',true);
+        this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','myorder');
         this.$emit('chageRight',false);
         //检查是否登录

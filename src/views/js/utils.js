@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import router from '../../router';
+import VueCookies from 'vue-cookies'
 //获取url参数
 export function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
     if (r != null) return unescape(r[2]); return null; // 返回参数值
 };
-
 //倒计时
 export function InitTime(time){  
     var dd,hh,mm,ss = null;
@@ -55,6 +55,38 @@ export function axiospost (api,data) {
     return new Promise((resolve, reject) => {
           Vue.prototype.$toast.loading({message: '加载中...',duration: 0,forbidClick: true,loadingType: 'spinner',}); 
           Vue.prototype.$axios.post(Vue.prototype.$mainApi+api,data,headers).then((res) => {
+            Vue.prototype.$toast.clear();
+            if(res.data.code==0){
+                resolve(res);
+            }else if(res.data.code==401){
+                Vue.prototype.$dialog.alert({
+                    message: '登录状态过期，请重新登录',
+                }).then(() => {
+                    VueCookies.remove('token')
+                    VueCookies.remove('userNo')
+                    VueCookies.remove('userId')
+                    VueCookies.remove('pendPayOrderNum')
+                    router.push({name: 'login',});
+                });
+            }else{
+              Vue.prototype.$toast.clear(); //清除加载框
+              Vue.prototype.$toast.fail({message: res.data.msg,forbidClick:true,duration:2200,overlay:true,});
+              reject('err')
+            }
+        }).catch((err) => {
+            Vue.prototype.$toast.clear(); //清除加载框
+            Vue.prototype.$toast.fail({message: '加载失败请重试',forbidClick:true,duration:2200,overlay:true,});
+            reject(err)
+        })
+    });
+};
+
+//接口统一处理 
+export function axiosget (api,data) {
+    var headers = {headers: {'token': Vue.prototype.$cookies.get('token')}};
+    return new Promise((resolve, reject) => {
+          Vue.prototype.$toast.loading({message: '加载中...',duration: 0,forbidClick: true,loadingType: 'spinner',}); 
+          Vue.prototype.$axios.get(Vue.prototype.$mainApi+api,data,headers).then((res) => {
             Vue.prototype.$toast.clear();
             if(res.data.code==0){
                 resolve(res);

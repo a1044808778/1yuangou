@@ -21,7 +21,10 @@
             <h3>商品详情</h3>
             <div v-html="goodsMap.goodsIntroduction"></div>
         </div>
-        <button class='buyBtn' @click='check'>立即购买</button>
+        
+        <div class='orderBtnBox'>
+            <button class='buyBtn' @click='check'>立即购买</button>
+        </div>
     </div>
 </template>
 
@@ -50,6 +53,7 @@ export default {
         //进入页面修改标题
         this.$emit('chageTitle','商品详情'+this.$addTitle);
         this.$emit('chageBack',true);
+        this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','index');
         this.$emit('chageRight',false);
         //检查是否登录

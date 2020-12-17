@@ -23,6 +23,7 @@ export default {
         //进入页面修改标题
         this.$emit('chageTitle','活动细则'+this.$addTitle);
         this.$emit('chageBack',true);
+        this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','index');
         this.$emit('chageRight',false);
         //获取规则

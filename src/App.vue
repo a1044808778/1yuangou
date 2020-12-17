@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-      <van-nav-bar fixed :title="title"  :left-arrow='backType==true' @click-left="onClickLeft" @click-right="onClickRight">
+      <van-nav-bar fixed :title="title" v-if="titleShow==true"  :left-arrow='backType==true' @click-left="onClickLeft" @click-right="onClickRight">
         <template #right>
           <van-icon name="wap-home-o" size="18" v-if='rightType==true' />
         </template>
       </van-nav-bar>
       <div class='mainApp'>
-        <router-view  @chageTitle="chageTitle" @chageRight='chageRight' @chageBack="chageBack" @chageBackPage="chageBackPage"></router-view>
+        <router-view  @chageTitleShow="chageTitleShow" @chageTitle="chageTitle" @chageRight='chageRight' @chageBack="chageBack" @chageBackPage="chageBackPage"></router-view>
       </div>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     name: 'App',
         data(){
         return{
-            title: 'visa一元购',backType:true,backPage:'',rightType:false,
+            title: 'visa一元购',backType:true,backPage:'',rightType:false,titleShow:false,
         }
     },
   components: {
@@ -27,6 +27,9 @@ export default {
   methods: {
     chageBackPage(item) {
       this.backPage = item;
+    },
+    chageTitleShow(type) {
+      this.titleShow = type;
     },
     chageTitle(item) {
       this.title = item;

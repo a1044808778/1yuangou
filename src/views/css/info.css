@@ -36,11 +36,14 @@ body{    overflow-y: scroll;}
 
 /*no*/
 .mainApp{ padding-top: 46px;}
+.indexwarp{ margin-top: -46px !important;}
 .wap-wrap {width:375px;margin:0 auto;font-size:14px; }
 .banner{width: 375px; height: 317px; position: relative;}
 .banner img.bannerImg{ width: 100%;}
 .userBox{ position: absolute;width:157px;height:65px; top: 0; left: 0; z-index: 9;}
 .userBox p { position: relative;}
+.userBox p i.notLogin{ color: #007AFF; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;}
+.userBox p i.logOut{ color: #999; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;}
 .userBox p span{ position: absolute; height:65px ; display: block; font-size: 12px;; line-height: 60px; width: 100px; text-align: center; right: 10px; top: 0;}
 .userBox p img{ width: 100%;}
 .helpBox{ position: absolute; width: 90px; height: 40px;  right: 0; top: 10px; cursor: pointer;}
@@ -84,7 +87,7 @@ body{    overflow-y: scroll;}
 .detailBox dd p{ line-height: 2em; font-size: 12px; color: #007AFF;}
 .detailBox dd p strong{ float: right;  color: #FF3B30; font-size: 20px; line-height: 1em;}
 .detailBox dd p span{ font-size: 12px;}
-.detailCont{ background-color: #FFF;  box-sizing: border-box; padding: 15px;width: 345px; margin: 15px auto; border-radius: 8px; }
+.detailCont{ background-color: #FFF;  box-sizing: border-box; padding: 15px;width: 345px; margin: 15px auto 90px auto; border-radius: 8px; }
 .detailCont h3{ font-size: 14px; line-height: 2em;}
 .detailCont p{ font-size: 12px; line-height: 2em;}
 .buyBtn{width: 345px; display: block; color: #FFF; border-radius: 49px; border: 0; height: 49px; background: linear-gradient(140deg, #FF5E61 0%, #FF3B30 100%); margin: 0 auto 15px auto;}
