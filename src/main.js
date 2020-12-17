@@ -28,9 +28,6 @@ Vue.prototype.$addTitle = ' - Visa';
 
 
 
-
-
-
 //网页传参
 if(getUrlParam("channelId")!==null && getUrlParam("channelId")!==undefined){
     sessionStorage.setItem('channelId',getUrlParam("channelId"));
@@ -38,6 +35,9 @@ if(getUrlParam("channelId")!==null && getUrlParam("channelId")!==undefined){
   //如果没有渠道ID 默认赋值
     sessionStorage.setItem('channelId',Vue.prototype.$DefaultChannelId);
 };
+
+
+
 
 
 
