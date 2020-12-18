@@ -144,18 +144,21 @@ export default {
                 this.$cookies.set('pendPayOrderNum',res.data.data.pendPayOrderNum);
                 var fromPage = sessionStorage.getItem('fromPage');
                 if(fromPage){
-                    this.$dialog.alert({
-                        message: '登录成功，点击确认返回',
-                    }).then(() => {
-                        sessionStorage.removeItem('fromPage');
-                        this.$router.push({name: fromPage});
-                    });
+                    // this.$dialog.alert({
+                    //     message: '登录成功，点击确认返回',
+                    // }).then(() => {
+                    //     sessionStorage.removeItem('fromPage');
+                    //     this.$router.push({name: fromPage});
+                    // });
+                    sessionStorage.removeItem('fromPage');
+                    this.$router.push({name: fromPage});
                 }else{
-                    this.$dialog.alert({
-                        message: '登录成功',
-                    }).then(() => {
-                        this.$router.push({name: 'index',});
-                    });
+                    // this.$dialog.alert({
+                    //     message: '登录成功',
+                    // }).then(() => {
+                    //     this.$router.push({name: 'index',});
+                    // });
+                    this.$router.push({name: 'index',});
                 }
             },error =>{
                 this.verifyCode = new GVerify('v_container')

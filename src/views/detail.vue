@@ -153,8 +153,8 @@ export default {
                 "activeId":this.activityId,
                 "rechargeAccount":this.addFrom.rechargeAccount,
                 "notifyMobile":this.addFrom.rechargeAccount,
-                "merchantCode":"0002900M00002",
-                "platformTp":"T0003"
+                "merchantCode":"0002900M00003",
+                "platformTp":"T0002"
             };
             axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
                 console.log(res.data.data)

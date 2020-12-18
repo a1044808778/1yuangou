@@ -34,6 +34,7 @@ body{    overflow-y: scroll;}
 
 
 
+
 /*no*/
 .mainApp{ padding-top: 46px;}
 .indexwarp{ margin-top: -46px !important;}
@@ -189,6 +190,13 @@ span.clrPay{color: #007AFF !important; font-weight: bold;}
 .van-dialog__confirm, .van-dialog__confirm:active{ color: #003EA9;}
 .van-nav-bar--fixed{ z-index: 20;}
 .van-nav-bar .van-icon{ color: #333; font-weight: bold;}
+
+.tips{color: #FF5E61; padding: 15px; font-weight: normal; font-size: 11px;}
+
+
+
+
+
 
 
 

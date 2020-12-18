@@ -48,12 +48,15 @@
                 <p class='code'><a :href="orderDetail.specialInfo">兑换链接</a> </p> 
             </div>
         </div> -->
+        <div class='tips' v-if='orderDetail.clientStatus == 3'>
+            请留意查看登录手机短信通知并领取权益
+        </div>
         <div class='cancelBox' v-if='orderDetail.clientStatus == 1'>
             <button @click='cancelShow=true' class='buyBtn btnCancel'>取消订单</button>
         </div>
         <div class='orderBtnBox'>
             <button @click='goPay' class='buyBtn btnBuy' v-if='orderDetail.expireTime > 0 && orderDetail.clientStatus == 1'>立即支付 剩余支付时间：{{orderDetail.expireTime | times}}</button>
-            <a class='buyBtn btnReceive' :href="orderDetail.specialInfo" v-if='orderDetail.goodsType == 4  && orderDetail.clientStatus == 3' >前往领取</a>
+            <!-- <a class='buyBtn btnReceive' :href="orderDetail.specialInfo" v-if='orderDetail.goodsType == 4  && orderDetail.clientStatus == 3' >前往领取</a> -->
             <!-- <button class='buyBtn btnDelete' @click='cancelShow=true'>删除订单</button> -->
             <button class='buyBtn btnBack' @click='goMainPage'>返回活动首页</button>
         </div>
