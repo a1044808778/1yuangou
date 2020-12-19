@@ -35,7 +35,7 @@
         </div>
         <div class="payBtnbox">
             <a class='goCard'>我要办卡</a>
-            <a :href="goAddr" class='submit' @click='goPay'>立即支付</a>
+            <a :href="goAddr" class='submit' >立即支付</a>
         </div>
     </div>
 </template>
@@ -118,7 +118,15 @@ export default {
         },error =>{
         
         })
-        axiospost('/api/client/ypJyOrder/cashier',data).then(res=>{
+
+    
+        let data2 = {
+            'orderId':this.orderId,
+            "merchantCode":"0002900M00003",
+            'channelId':sessionStorage.getItem('channelId'),
+            "platformTp":"T0002"
+        };
+        axiospost('/api/client/ypJyOrder/cashier',data2).then(res=>{
             //此处处理唤起成功逻辑
             this.goAddr = res.data.data
 
@@ -129,17 +137,6 @@ export default {
     },
     methods: {
 
-        goPay(){
-            let data = {
-                'orderId':this.orderId,
-                "merchantCode":"0002900M00003",
-                'channelId':sessionStorage.getItem('channelId'),
-                "platformTp":"T0002"
-            };
-            
-
-            
-        },
 
         //img
         openImageView(position){

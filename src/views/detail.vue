@@ -7,7 +7,7 @@
             <dt><img :src="goodsMap.entranceImg" /></dt>
             <dd>
                 <h3>{{goodsMap.name}}</h3>
-                <h5>原价：{{goodsMap.sellPrice - goodsMap.reductionAmount}}</h5>
+                <h5>原价：{{goodsMap.sellPrice + goodsMap.reductionAmount}}</h5>
                 <p> <i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice}}</strong></p>
             </dd>
         </dl>
@@ -125,11 +125,11 @@ export default {
 
                     });
                 }else if(this.checked==2){
-                    this.$dialog.alert({
-                        message: '本月第一次购买，可以下单',
-                    }).then(() => {
-                        this.btnBuy();
-                    });
+                    this.btnBuy();
+                    // this.$dialog.alert({
+                    //     message: '本月第一次购买，可以下单',
+                    // }).then(() => {
+                    // });
                 }else{
                     this.$dialog.alert({
                         message: '你来晚了，名额都被抢光了去看看别的优惠吧',
@@ -145,29 +145,31 @@ export default {
 
         //下单
         btnBuy(){
+            sessionStorage.setItem('rechargeAccount',this.addFrom.rechargeAccount);
+            this.$router.push({name: 'checkOrder',});
             //下单
-            let data = {
-                'activityId':this.activityId,
-                'goodsId':this.goodsId,
-                'channelId':sessionStorage.getItem('channelId'),
-                "activeId":this.activityId,
-                "rechargeAccount":this.addFrom.rechargeAccount,
-                "notifyMobile":this.addFrom.rechargeAccount,
-                "merchantCode":"0002900M00003",
-                "platformTp":"T0002"
-            };
-            axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
-                console.log(res.data.data)
-                this.orderData = res.data.data
-                this.$dialog.alert({
-                    message: '下单成功，请尽快支付',
-                }).then(() => {
-                    sessionStorage.setItem('orderId',this.orderData.orderId);
-                    this.$router.push({name: 'order',});
-                });
-            },error =>{
+            // let data = {
+            //     'activityId':this.activityId,
+            //     'goodsId':this.goodsId,
+            //     'channelId':sessionStorage.getItem('channelId'),
+            //     "activeId":this.activityId,
+            //     "rechargeAccount":this.addFrom.rechargeAccount,
+            //     "notifyMobile":this.addFrom.rechargeAccount,
+            //     "merchantCode":"0002900M00003",
+            //     "platformTp":"T0002"
+            // };
+            // axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
+            //     console.log(res.data.data)
+            //     this.orderData = res.data.data
+            //     this.$dialog.alert({
+            //         message: '下单成功，请尽快支付',
+            //     }).then(() => {
+            //         sessionStorage.setItem('orderId',this.orderData.orderId);
+            //         this.$router.push({name: 'order',});
+            //     });
+            // },error =>{
             
-            })
+            // })
             
         },
 

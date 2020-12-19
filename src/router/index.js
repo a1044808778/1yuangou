@@ -33,6 +33,13 @@ Vue.use(VueRouter)
         }
     },
     {
+        path: '/checkOrder',//确认订单
+        name: 'checkOrder',
+        component: function () {
+            return import( '../views/checkOrder.vue')
+        }
+    },
+    {
         path: '/myorder', //我的订单
         name: 'myorder',
         component: function () {

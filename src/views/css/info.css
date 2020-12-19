@@ -78,6 +78,10 @@ body{    overflow-y: scroll;}
 .ruleCont p{ line-height: 2em;}
 /* detailBox */
 .detailWarp{ background-color: #F5F5F5; margin: 15px auto;}
+.payDetailCheckWarp{ background-color: #FFF; margin: 0 auto; padding-top: 1px; height: 70vh;}
+.payDetailCheckWarp .orderBtnBox{ background-color: #FFF;}
+.payDetailCheckWarp .orderBtnBox .buyBtn{ background: #003EA9;}
+.payDetailCheckWarp .payDetailBox h3 span{ margin-left: auto;color: #333; font-size: 12px; font-weight: normal;}
 .detailBox{ display: flex; width: 345px; margin: 0 auto; height: 110px; border-radius: 8px; background: #FFF; padding: 7px 9px; box-sizing: border-box;}
 .detailBox dt{  width: 95px; height: 95px;display: flex; align-items: center;}
 .detailBox dt img{ width: 100%; border-radius: 5px;}
