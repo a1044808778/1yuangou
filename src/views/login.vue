@@ -5,8 +5,8 @@
             <div class='litem'><input type="text" v-model="loginForm.mobile" class='in01' placeholder="请输入手机号"></div>
             <div class='litem'><input type="text" v-model="loginForm.verifyCode" class='in02' placeholder="请输入图形验证码"><div id="v_container" class='code'></div> </div>
             <div class='litem'><input type="text" v-model="loginForm.smsCode" class='in03' placeholder="请输入短信验证码"><button :disabled='disableVerifyCodeType' class='send' @click='sendVerifyCode'>{{sendVerifyCodeText}}</button></div>
-            <button class='btnLogin' @click='btnLogin' :disabled='true==(loginForm.mobile=="" || loginForm.verifyCode=="" || loginForm.smsCode=="")'>完成</button>
-            <p class='lread'> <img src="./images/check.png" alt="" /> 登录即阅读并同意<a href="#" @click='getQuestion("05")'>《用户协议》</a>和<a href="#" @click='getQuestion("09")'>《隐私协议》</a></p>
+            <button class='btnLogin' @click='btnLogin' :disabled='true==(loginForm.mobile=="" || loginForm.verifyCode=="" || loginForm.smsCode=="")'>登录</button>
+            <p class='lread' @click="read"> <img src="./images/check.png" alt="" v-if='readType==true' /> <img src="./images/checkNo.png" alt="" v-if='readType==false'   /> 登录即阅读并同意<a href="#" @click='getQuestion("05")'>《用户协议》</a>和<a href="#" @click='getQuestion("09")'>《隐私协议》</a></p>
         </div>
         <!-- 用户协议 -->
         <van-popup v-model="tipsShow" position="bottom" :style="{ height: '90%' }" round closeable>
@@ -34,7 +34,7 @@ export default {
             },
             tipsShow:false,content:'',title:'',
             //验证码
-            verifyCode:'',verifyCodeTimer:60, sendVerifyCodeText:'获取验证码',disableVerifyCodeType:false,timerSendVerifyCode:'',
+            verifyCode:'',verifyCodeTimer:60, sendVerifyCodeText:'获取验证码',disableVerifyCodeType:false,timerSendVerifyCode:'',readType:false,
         }
     },
     
@@ -70,6 +70,10 @@ export default {
         
     },
     methods: {
+        //阅读
+        read(){
+            this.readType = this.readType==true ? false : true;
+        },
         //发送验证码
         sendVerifyCode(){
             var that = this;
@@ -114,6 +118,11 @@ export default {
         btnLogin(){
             var verifyCode = this.loginForm.verifyCode;
             var verifyFlag = this.verifyCode.validate(verifyCode);
+            if(this.readType == false){
+                this.$toast.fail({message: '请阅读并同意用户协议和隐私协议',forbidClick:true,duration:1000,overlay:true,});//错误提示
+                this.verifyCode = new GVerify('v_container')
+                return false
+            }
             if(verifyFlag == false){
                 this.$toast.fail({message: '请输入正确的图形验证码',forbidClick:true,duration:1000,overlay:true,});//错误提示
                 this.verifyCode = new GVerify('v_container')
@@ -137,7 +146,8 @@ export default {
                 'channelId':sessionStorage.getItem('channelId')
             };
             axiospost('/api/client/user/login',data,{}).then(res=>{
-                //储存token
+                //储存token 
+                this.$cookies.set('mobile',res.data.data.mobile);
                 this.$cookies.set('token',res.data.data.token);
                 this.$cookies.set('userNo',res.data.data.userNo);
                 this.$cookies.set('userId',res.data.data.userId);

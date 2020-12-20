@@ -3,7 +3,7 @@
         <div class='visaBanner'>
             <img class='bannerImg' src="./images/visa.png" alt="">
             <div class='userBox'>
-                <p v-if='isLogin==true' @click='logOut'><img src="./images/user.png" /><span>{{userId  | fuserId}} <i class='logOut'>退出</i></span></p>
+                <p v-if='isLogin==true' @click='logOut'><img src="./images/user.png" /><span>{{mobile | fuserId}} <i class='logOut'>退出</i></span></p>
                 <p v-else @click='goLogin'><img src="./images/user.png" /><span style='color:#999'>未登录   <i class='notLogin'>登录</i></span></p>
             </div>
             <div class='helpBox' @click='goRule' title='活动细则'></div>
@@ -37,7 +37,7 @@ export default {
     data () {
         return {
             //login
-            isLogin:false,userId:0,token:0,
+            isLogin:false,userId:0,token:0,mobile:'',
             //page
             catagoryList:[],goodsList:[],curId:null,activityId:0,
         }
@@ -60,6 +60,7 @@ export default {
             //如果登录获取用户ID
             this.token = this.$cookies.get('token');
             this.userId = this.$cookies.get('userId');
+            this.mobile = this.$cookies.get('mobile');
         };
        //获取分类
        this.getCatagory();
