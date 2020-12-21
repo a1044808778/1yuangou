@@ -3,7 +3,7 @@
         <div class=' payDetailBox'>
             <h3>{{goodsMap.name}}{{goodsMap.reductionAmount}}<span>X1</span></h3>
             <p><i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i></p>
-            <h5> <strong class='pay noright'><span>¥</span>{{goodsMap.sellPrice}}</strong> <span class='oprice'>原价：{{goodsMap.sellPrice + goodsMap.reductionAmount}}</span> </h5>
+            <h5> <strong class='pay noright'><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong> <span class='oprice'>原价：{{goodsMap.sellPrice}}</span> </h5>
         </div>
        
         <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1'>
@@ -104,14 +104,20 @@ export default {
                 "platformTp":"T0002"
             };
             axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
-                console.log(res.data.data)
                 this.orderData = res.data.data
                 // this.$dialog.alert({
                 //     message: '下单成功，请尽快支付',
                 // }).then(() => {
                 // });
-                    sessionStorage.setItem('orderId',this.orderData.orderId);
-                    this.$router.push({name: 'order',});
+                if(res.data.code==333){
+                    this.$dialog.alert({
+                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 下个月再来吧',
+                    }).then(() => {
+
+                    });
+                }
+                sessionStorage.setItem('orderId',this.orderData.orderId);
+                this.$router.push({name: 'pay',});
             },error =>{
             
             })

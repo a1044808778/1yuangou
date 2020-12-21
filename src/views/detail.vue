@@ -1,14 +1,12 @@
-<!--
-    检查支付名额提示需要修改
--->
+
 <template>
     <div class="wap-wrap detailWarp"  id="page" >
         <dl class='detailBox'>
             <dt><img :src="goodsMap.entranceImg" /></dt>
             <dd>
                 <h3>{{goodsMap.name}}</h3>
-                <h5>原价：{{goodsMap.sellPrice + goodsMap.reductionAmount}}</h5>
-                <p> <i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice}}</strong></p>
+                <h5>原价：{{goodsMap.sellPrice}}</h5>
+                <p> <i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong></p>
             </dd>
         </dl>
         <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1'>
@@ -120,16 +118,16 @@ export default {
                     this.btnBuy();
                 }else if(this.checked==1){
                     this.$dialog.alert({
-                        message: '不要太贪心哦，你已经买过了',
+                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 下个月再来吧',
                     }).then(() => {
 
                     });
                 }else if(this.checked==2){
-                    this.btnBuy();
-                    // this.$dialog.alert({
-                    //     message: '本月第一次购买，可以下单',
-                    // }).then(() => {
-                    // });
+                    this.$dialog.alert({
+                        message: `该类型商品在活动期间每个手机号\n<b>【全网】</b>仅限一次购买\n 请确保您之前未购买过该商品\n 若您参加过该活动，本次购买的商品将不会生效`,
+                    }).then(() => {
+                        this.btnBuy();
+                    });
                 }else{
                     this.$dialog.alert({
                         message: '你来晚了，名额都被抢光了去看看别的优惠吧',

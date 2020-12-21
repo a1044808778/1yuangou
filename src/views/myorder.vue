@@ -10,7 +10,7 @@
         </div>
         <div class='orderList'> 
             <div v-if='orderList.length == 0' style='text-align:center'>暂无订单</div>
-            <dl v-for='(item,index) of orderList' :key='index' @click='goOrder(item.orderId)' class='orderDetailBox' :class='{"novisa":item.subtotal-item.settleMoney<=0}'>
+            <dl v-for='(item,index) of orderList' :key='index' @click='goOrder(item.orderId,item.clientStatus)' class='orderDetailBox' :class='{"novisa":item.subtotal-item.settleMoney<=0}'>
                 <dt><img :src="item.goodsImgUrl" /></dt>
                 <dd> 
                     <h3>{{item.goodsName}}
@@ -92,8 +92,14 @@ export default {
 
         },
         //前往订单详情
-        goOrder(orderId){
+        goOrder(orderId,clientStatus){
             sessionStorage.setItem('orderId',orderId);
+            // if(clientStatus==1){
+            //     this.$router.push({name: 'pay',});
+            // }else{
+            //     this.$router.push({name: 'order',});
+            // }
+            
             this.$router.push({name: 'order',});
         },
 
