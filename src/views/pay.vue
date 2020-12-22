@@ -16,7 +16,7 @@
                 </van-radio> 
             </van-radio-group>
         </div> -->
-        <!-- <div class='payDetail'>ban
+        <!-- <div class='payDetail'>
             <h3>微信支付优惠使用说明</h3>
             <p>1、提交订单</p>
             <p>2、确保微信支付绑定了Visa信用卡</p>
