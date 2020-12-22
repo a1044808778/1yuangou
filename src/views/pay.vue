@@ -5,7 +5,7 @@
             <p>Visa银联双标卡专享价</p>
             <h5> <strong class='pay noright'><span>¥</span>{{orderDetail.settleMoney}}</strong> <span class='oprice'>原价：{{orderDetail.subtotal}}</span> </h5>
         </div>
-        <div class='payWays'>
+        <!-- <div class='payWays'>
             <h3>支付方式</h3>
             <van-radio-group v-model="radio">
                 <van-radio name="wechat">
@@ -15,8 +15,8 @@
                     </dl>
                 </van-radio> 
             </van-radio-group>
-        </div>
-        <div class='payDetail'>
+        </div> -->
+        <!-- <div class='payDetail'>ban
             <h3>微信支付优惠使用说明</h3>
             <p>1、提交订单</p>
             <p>2、确保微信支付绑定了Visa信用卡</p>
@@ -32,10 +32,10 @@
                 <p><img src="./images/y5.png"  @click="openImageView(4)" alt=""></p>
                 <p> </p>
             </div>
-        </div>
+        </div> -->
         <div class="payBtnbox">
-            <a class='goCard'>我要办卡</a>
-            <a :href="goAddr" class='submit' >立即支付</a>
+            <!-- <a class='goCard'>我要办卡</a> -->
+            <a :href="goAddr" class='submit' style='width:100%; box-sizing:border-box;margin:0' >立即支付</a>
         </div>
     </div>
 </template>

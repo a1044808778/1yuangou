@@ -184,7 +184,7 @@ span.clrPay{color: #007AFF !important; font-weight: bold;}
 .guideBox{ display: flex;}
 .guideBox p{ padding:2px 5px; flex: 1;}
 .guideBox img{ width:100%;}
-.payBtnbox{ display: flex; position: fixed; bottom:0; width: 375px; background: #FFF; padding:15px 19px ; }
+.payBtnbox{ display: flex; position: fixed; bottom:0; width: 375px; box-sizing: border-box; background: #FFF; padding:15px 19px ; }
 .payBtnbox button,.payBtnbox a{width: 159px; height: 48px; border-radius: 25px; text-align: center; line-height: 48px;}
 .payBtnbox .goCard{border: 1px solid #999999; background: #FFF; margin: 0 10px 0 0px; }
 .payBtnbox .submit{border: 0px solid #666666; background: linear-gradient(143deg, #FF5E61 0%, #FF3B30 100%); margin: 0 0 0 10px; color: #FFF;}
