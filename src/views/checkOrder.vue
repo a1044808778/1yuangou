@@ -104,20 +104,26 @@ export default {
                 "platformTp":"T0002"
             };
             axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
-                this.orderData = res.data.data
+                this.orderData = res.data.data;
                 // this.$dialog.alert({
                 //     message: '下单成功，请尽快支付',
                 // }).then(() => {
                 // });
-                if(res.data.code==333){
-                    this.$dialog.alert({
-                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 下个月再来吧',
-                    }).then(() => {
-
-                    });
-                }
                 sessionStorage.setItem('orderId',this.orderData.orderId);
-                this.$router.push({name: 'pay',});
+                let data2 = {
+                    'orderId':this.orderData.orderId,
+                    "merchantCode":"0002900M00003",
+                    'channelId':sessionStorage.getItem('channelId'),
+                    "platformTp":"T0002"
+                };
+                axiospost('/api/client/ypJyOrder/cashier',data2).then(res=>{
+                    //此处处理唤起成功逻辑
+                    location.href = res.data.data;
+
+                },error =>{
+                
+                })
+                // this.$router.push({name: 'pay',});
             },error =>{
             
             })
