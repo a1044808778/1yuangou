@@ -11,7 +11,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
 const HOST = 'localhost'
-const PORT = '9005'
+const PORT = '8080'
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {

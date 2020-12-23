@@ -20,11 +20,11 @@ body{    overflow-y: scroll;}
 .loginBox .litem{ overflow: hidden; display: flex;margin-top: 27px; }
 .loginBox .litem input{ height: 44px; background: #F5F5F5; padding: 0 18px;  box-sizing: border-box;}
 .loginBox .litem input.in01{ width:345px ;}
-.loginBox .litem input.in02{ width:252px ;}
-.loginBox .litem input.in03{ width:244px ;}
-.loginBox .litem .code{ width: 100px; height: 43px;}
-.loginBox .litem .code canvas{width: 100px; height: 43px;}
-.loginBox .litem button.send{  cursor: pointer;width:100px; background: #F5F5F5;   height: 44px; line-height: 44px; text-align: center; font-size:13px ; color: #333; display: block; border: 0px;}
+.loginBox .litem input.in02{ width:232px ;}
+.loginBox .litem input.in03{ width:214px ;-webkit-touch-callout: none;}
+.loginBox .litem .code{ width: 120px; height: 43px;}
+.loginBox .litem .code canvas{width: 120px; height: 43px;}
+.loginBox .litem button.send{  cursor: pointer;width:130px; background: #F5F5F5;   height: 44px; line-height: 44px; text-align: center; font-size:13px ; color: #333; display: block; border: 0px;}
 .loginBox .btnLogin{width:345px ; border: 0px;margin-top: 27px;height: 54px; background: #003EA9; font-size: 16px; color: #FFFFFF;  cursor: pointer;}
 .loginBox .btnLogin:disabled{ color: #999999; background: #EEEEEE;}
 .loginBox .lread{ font-size: 12px; margin-top: 20px; height: 14px; line-height: 14px; align-items: center;}
@@ -44,7 +44,8 @@ body{    overflow-y: scroll;}
 .banner img.bannerImg{ width: 100%;}
 .userBox{ position: absolute;width:157px;height:65px; top: 0; left: 0; z-index: 9;}
 .userBox p { position: relative;}
-.userBox p i.notLogin{ color: #007AFF; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;}
+/* .userBox p i.notLogin{ color: #007AFF; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;} */
+.userBox p i.notLogin{ color: #007AFF; font-weight: bold; }
 .userBox p i.logOut{ color: #999; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;}
 .userBox p span{ position: absolute; height:65px ; display: block; font-size: 12px;; line-height: 60px; width: 100px; text-align: center; right: 10px; top: 0;}
 .userBox p img{ width: 100%;}
