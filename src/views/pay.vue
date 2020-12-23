@@ -122,7 +122,7 @@ export default {
     
         let data2 = {
             'orderId':this.orderId,
-            "merchantCode":"0002900M00003",
+            "merchantCode":$merchantCode,
             'channelId':sessionStorage.getItem('channelId'),
             "platformTp":"T0002"
         };

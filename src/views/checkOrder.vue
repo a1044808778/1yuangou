@@ -1,7 +1,7 @@
 <template>
     <div class="wap-wrap payDetailCheckWarp pb80"  id="page" >
         <div class=' payDetailBox'>
-            <h3>{{goodsMap.name}}{{goodsMap.reductionAmount}}<span>X1</span></h3>
+            <h3>{{goodsMap.name}}<span>X1</span></h3>
             <p><i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i></p>
             <h5> <strong class='pay noright'><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong> <span class='oprice'>原价：{{goodsMap.sellPrice}}</span> </h5>
         </div>
@@ -100,7 +100,7 @@ export default {
                 "activeId":this.activityId,
                 "rechargeAccount":this.rechargeAccount,
                 "notifyMobile":this.rechargeAccount,
-                "merchantCode":"0002900M00003",
+                "merchantCode":this.$merchantCode,
                 "platformTp":"T0002"
             };
             axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
@@ -112,7 +112,7 @@ export default {
                 sessionStorage.setItem('orderId',this.orderData.orderId);
                 let data2 = {
                     'orderId':this.orderData.orderId,
-                    "merchantCode":"0002900M00003",
+                    "merchantCode":this.$merchantCode,
                     'channelId':sessionStorage.getItem('channelId'),
                     "platformTp":"T0002"
                 };
