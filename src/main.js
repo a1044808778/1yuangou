@@ -11,9 +11,10 @@ import Vant from 'vant';
 axios.defaults.timeout = 30000;
 
 //token过期时间 7天后过期
-var time = 7;
+var time = 7; 
 //api地址
-Vue.prototype.$mainApi = 'https://testa.link2shops.com/vfuliApi'; 
+// Vue.prototype.$mainApi = 'https://testa.link2shops.com/vfuliApi';  //开发
+Vue.prototype.$mainApi = 'https://vtravel.link2shops.com/vfuliApi';  //生产
 //默认渠道ID 页面没有带入渠道ID时使用
 Vue.prototype.$DefaultChannelId = '73b34182aaed4559b56e5504801f557b'; 
 //默认首页标题 
