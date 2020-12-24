@@ -118,18 +118,15 @@ export default {
         },error =>{
         
         })
-
-    
         let data2 = {
             'orderId':this.orderId,
-            "merchantCode":$merchantCode,
+            "merchantCode":this.$merchantCode,
             'channelId':sessionStorage.getItem('channelId'),
             "platformTp":"T0002"
         };
         axiospost('/api/client/ypJyOrder/cashier',data2).then(res=>{
             //此处处理唤起成功逻辑
             this.goAddr = res.data.data
-
         },error =>{
         
         })

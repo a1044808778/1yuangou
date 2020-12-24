@@ -18,11 +18,16 @@
                 <p v-if='orderDetail.clientStatus == 1'><span class="clrPay">待支付</span></p> 
                 <p v-else-if='orderDetail.clientStatus == 3'><span class="clrOk">已完成</span></p> 
                 <p v-else-if='orderDetail.clientStatus == 4'><span class="clrCencel" >已取消</span></p> 
+                <p v-else-if='orderDetail.clientStatus == 6'><span class="clrCencel" >已退款</span></p> 
+                <p v-else-if='orderDetail.clientStatus == 8'><span class="clrCencel" >退款中</span></p> 
+                <p v-else-if='orderDetail.clientStatus == 9'><span class="clrRed" >支付失败</span></p> 
+                <p v-else-if='orderDetail.clientStatus == 10'><span class="clrRed" >退款失败</span></p> 
+                <p v-else-if='orderDetail.clientStatus == 11'><span class="clrRed" >充值失败</span></p> 
                 <p v-else><span>未知</span></p> 
             </div>
             <div class='orderListItem'>
                 <label for="">订单编号</label>
-                <p><span>{{orderDetail.orderId}}</span></p> 
+                <p><span>{{orderDetail.orderNo}}</span></p> 
             </div>
             <div class='orderListItem'>
                 <label for="">创建时间</label>
@@ -35,24 +40,28 @@
                 <p><strong class='pay'><span>¥</span>{{orderDetail.settleMoney}}</strong></p> 
             </div>
         </div> 
-        <div class='orderInfo' v-if='orderDetail.goodsType == 2 && orderDetail.clientStatus == 3'>
+        <div class='orderInfo' v-if='(orderDetail.goodsType == 2 || orderDetail.goodsType == 4 ) && orderDetail.clientStatus == 3'>
             <div class='orderListItem'>
                 <label for="">兑换码</label>
                 <p class='code'>{{orderDetail.specialInfo}}</p> 
             </div>
-            <input type="text" class='exchange' disabled :value="orderDetail.couponCodeDesc">
+            <!-- <text type="text" class='exchange' disabled v-html="orderDetail.couponCodeDesc"> -->
+            <div type="text" class='exchange' disabled v-html="orderDetail.couponCodeDesc"></div>
         </div>
-        <!-- <div class='orderInfo' v-if='orderDetail.goodsType == 4 && orderDetail.clientStatus == 3'>
+        <!-- <div class='orderInfo' v-if='orderDetail.goodsType == 5 && orderDetail.clientStatus == 3'>
             <div class='orderListItem'>
                 <label for="">兑换码</label>
                 <p class='code'><a :href="orderDetail.specialInfo">兑换链接</a> </p> 
             </div>
         </div> -->
-        <div class='tips' v-if='orderDetail.clientStatus == 3'>
+        <div class='tips' v-else-if='orderDetail.clientStatus == 3'>
             请留意查看登录手机短信通知并领取权益
         </div>
         <div class='cancelBox' v-if='orderDetail.clientStatus == 1'>
             <button @click='cancelShow=true' class='buyBtn btnCancel'>取消订单</button>
+        </div>
+        <div class='cancelBox' v-if='orderDetail.clientStatus == 11'>
+            <button @click='refundShow=true' class='buyBtn btnCancel'>申请退款</button>
         </div>
         <div class='orderBtnBox'>
             <button @click='goPay' class='buyBtn btnBuy' v-if='orderDetail.expireTime > 0 && orderDetail.clientStatus == 1'>立即支付 剩余支付时间：{{orderDetail.expireTime | times}}</button>
@@ -93,6 +102,28 @@
                 </div>
             </div>
         </van-popup>
+        <!-- alert -->
+        <van-popup v-model="refundShow">
+            <div class='alertBox alertConfirmBox'>
+                <h1>您是否确认申请退款？</h1>
+                <p>退款金额将由原支付通道退回</p>
+                <div class='alertBtnBox'>
+                    <button class='cancel' @click='refundShow=false'>关闭</button>
+                    <button class='delete' @click='btnRefund'>确认退款</button>
+                </div>
+            </div>
+        </van-popup>
+        <!-- alert -->
+        <van-popup v-model="refundEndShow">
+            <div class='alertBox'>
+                <h1>退款成功</h1>
+                <p>退款金额将由原支付通道退回</p>
+                <button class='close' @click='close'></button>
+                <div class='alertBtnBox'>
+                    <button class='normal' @click='btnRefundEnd'>确定</button>
+                </div>
+            </div>
+        </van-popup>
     </div>
 </template>
 
@@ -107,7 +138,7 @@ export default {
     },
     data () {
         return {
-            show:false,showDelete:false,cancelShow:false,
+            show:false,showDelete:false,cancelShow:false,refundShow:false,refundEndShow:false,
             //token
             isLogin:false,token:0,
             //page
@@ -169,6 +200,29 @@ export default {
 
     },
     methods: {
+        
+
+        //申请退款
+        btnRefund(){
+            let data = {
+                'orderId':this.orderId, 
+                'channelId':sessionStorage.getItem('channelId')
+            };
+            axiospost('/api/client/ypJyOrder/refund',data).then(res=>{
+                // this.$dialog.alert({
+                //     message: '申请成功',
+                // }).then(() => {
+                //     this.$router.push({name: 'index',});
+                // });
+                this.refundEndShow = true;
+            },error =>{
+            
+            })
+        },
+        // 退款成功
+        btnRefundEnd(){
+            this.$router.push({name: 'index',});
+        },
         //去支付
         goPay(){
             sessionStorage.setItem('orderId',this.orderId);

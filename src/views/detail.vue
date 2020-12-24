@@ -9,11 +9,8 @@
                 <p> <i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong></p>
             </dd>
         </dl>
-        <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1'>
-            充值号码：<input type="text" v-model='addFrom.rechargeAccount' placeholder="请输入充值手机号码" >
-        </div>
-        <div class='detailInput' v-if='goodsMap.rechargeAccountType == 2'>
-            充值账户：<input type="text" v-model='addFrom.rechargeAccount' placeholder="请输入充值账户" >
+        <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1 || goodsMap.rechargeAccountType == 2'>
+            {{goodsMap.placeholder}}：<input type="text" v-model='addFrom.rechargeAccount' :placeholder="goodsMap.placeholder" >
         </div>
         <div class='detailCont'>
             <h3>商品详情</h3>

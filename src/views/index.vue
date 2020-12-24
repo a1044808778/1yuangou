@@ -4,7 +4,7 @@
             <img class='bannerImg' src="./images/visa.png" alt="">
             <div class='userBox'>
                 <p v-if='isLogin==true' @click='logOut'><img src="./images/user.png" /><span>{{mobile | fuserId}} <i class='logOut'>退出</i></span></p>
-                <p v-else @click='goLogin'><img src="./images/user.png" /><span style='color:#999;'>   <i class='notLogin' >登录</i></span></p>
+                <p v-else @click='goLogin'><img src="./images/user.png" /><span style='color:#999;'><i class='notLogin' >登录</i></span></p>
             </div>
             <div class='helpBox' @click='goRule' title='活动细则'></div>
         </div>

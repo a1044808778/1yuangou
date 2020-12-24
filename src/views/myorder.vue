@@ -4,7 +4,7 @@
             <h3 class='orderNav'>
                 <span :class='{"cur":status == 0}' @click='changeStatus(0)'>全部</span>
                 <span :class='{"cur":status == 1}' @click='changeStatus(1)'>待支付</span>
-                <span :class='{"cur":status == 2}' @click='changeStatus(2)'>已完成</span>
+                <span :class='{"cur":status == 3}' @click='changeStatus(3)'>已完成</span>
                 <span :class='{"cur":status == 4}' @click='changeStatus(4)'>已取消</span>
             </h3>
         </div>
@@ -17,6 +17,11 @@
                         <span class="clrPay" v-if='item.clientStatus == 1'>待支付</span>
                         <span class="clrOk" v-else-if='item.clientStatus == 3'>已完成</span>
                         <span class="clrCencel" v-else-if='item.clientStatus == 4'>已取消</span>
+                        <span class="clrCencel" v-else-if='item.clientStatus == 6'>已退款</span>
+                        <span class="clrCencel" v-else-if='item.clientStatus == 8'>退款中</span>
+                        <span class="clrRed" v-else-if='item.clientStatus == 9'>支付失败</span>
+                        <span class="clrRed" v-else-if='item.clientStatus == 10'>退款失败</span>
+                        <span class="clrRed" v-else-if='item.clientStatus == 11'>充值失败</span>
                         <span v-else>未知</span>
                     </h3>
                     <h5>{{item.createTime}}<span>原价：{{item.subtotal}}</span></h5>
