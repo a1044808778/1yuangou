@@ -101,24 +101,25 @@ export default {
             };
             axiospost('/api/client/ypJyOrder/submit',data).then(res=>{
                 this.orderData = res.data.data;
+                location.href = res.data.cashierUrl;
                 // this.$dialog.alert({
                 //     message: '下单成功，请尽快支付',
                 // }).then(() => {
                 // });
-                sessionStorage.setItem('orderId',this.orderData.orderId);
-                let data2 = {
-                    'orderId':this.orderData.orderId,
-                    "merchantCode":this.$merchantCode,
-                    'channelId':sessionStorage.getItem('channelId'),
-                    "platformTp":"T0002"
-                };
-                axiospost('/api/client/ypJyOrder/cashier',data2).then(res=>{
-                    //此处处理唤起成功逻辑
-                    location.href = res.data.data;
+                // sessionStorage.setItem('orderId',this.orderData.orderId);
+                // let data2 = {
+                //     'orderId':this.orderData.orderId,
+                //     "merchantCode":this.$merchantCode,
+                //     'channelId':sessionStorage.getItem('channelId'),
+                //     "platformTp":"T0002"
+                // };
+                // axiospost('/api/client/ypJyOrder/cashier',data2).then(res=>{
+                //     //此处处理唤起成功逻辑
+                //     location.href = res.data.data;
 
-                },error =>{
+                // },error =>{
                 
-                })
+                // })
                 // this.$router.push({name: 'pay',});
             },error =>{
             
