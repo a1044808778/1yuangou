@@ -4,7 +4,7 @@
 -->
 <template>
     <div class="wap-wrap detailWarp pb140"  id="page" >
-        <dl class='detailBox'>
+        <dl class='detailBox' @click="goDetail">
             <dt><img :src="orderDetail.goodsImgUrl" /></dt>
             <dd>
                 <h3>{{orderDetail.goodsName}}</h3>
@@ -200,7 +200,13 @@ export default {
 
     },
     methods: {
-        
+        //去详情
+        goDetail(){
+            console.log(this.orderDetail)
+            sessionStorage.setItem('goodsId',this.orderDetail.goodsId);
+            this.$router.push({name: 'detail',});
+
+        },
 
         //申请退款
         btnRefund(){

@@ -81,7 +81,7 @@ export default {
             };
             axiospost('/api/client/ypJyActivity/goodsDetail',data,{}).then(res=>{
                 this.goodsMap = res.data.goodsMap;
-                this.$emit('chageTitle',this.goodsMap.name+this.$addTitle);
+                // this.$emit('chageTitle',this.goodsMap.name+this.$addTitle);
             },error =>{
             
             })

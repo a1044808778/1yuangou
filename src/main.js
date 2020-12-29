@@ -21,9 +21,9 @@ Vue.prototype.$DefaultChannelId = '73b34182aaed4559b56e5504801f557b';
 // Vue.prototype.$merchantCode = '0002900M00003';  //开发
 Vue.prototype.$merchantCode = '0002900M00002';  //生产
 //默认首页标题 
-Vue.prototype.$title = 'Visa 一元购';
+Vue.prototype.$title = 'Visa一元购';
 //子页面后添加的标题 不需要填空格
-Vue.prototype.$addTitle = ' - Visa';
+Vue.prototype.$addTitle = '';
 
 
 

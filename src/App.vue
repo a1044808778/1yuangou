@@ -18,7 +18,7 @@ export default {
     name: 'App',
         data(){
         return{
-            title: 'visa一元购',backType:true,backPage:'',rightType:false,titleShow:false,
+            title: 'Visa一元购',backType:true,backPage:'',rightType:false,titleShow:false,
         }
     },
   components: {
