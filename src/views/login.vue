@@ -48,6 +48,7 @@ export default {
         this.$emit('chageBack',true);
         this.$emit('chageTitleShow',true);
         this.$emit('chageRight',false);
+        sessionStorage.setItem('activePage','login'); 
         var fromPage = sessionStorage.getItem('fromPage');
         if(fromPage){
             this.$emit('chageBackPage',sessionStorage.getItem('fromPage'));

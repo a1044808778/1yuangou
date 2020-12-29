@@ -26,6 +26,7 @@ export default {
         this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','index');
         this.$emit('chageRight',false);
+        sessionStorage.setItem('activePage','rule'); 
         //获取规则
         let data = {
             'activityTag':'yyg',

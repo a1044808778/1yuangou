@@ -80,6 +80,7 @@ export default {
         this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','order');
         this.$emit('chageRight',false);
+        sessionStorage.setItem('activePage','pay'); 
         //检查是否登录
         this.isLogin = this.$cookies.isKey('token');
         console.log('用户登录状态',this.isLogin)

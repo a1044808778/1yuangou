@@ -30,7 +30,7 @@ Vue.prototype.$addTitle = '';
 
 
 
-
+sessionStorage.removeItem('curId');
 
 //网页传参
 if(getUrlParam("channelId")!==null && getUrlParam("channelId")!==undefined){

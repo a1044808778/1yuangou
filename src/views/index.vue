@@ -44,7 +44,7 @@ export default {
     },
     
     created () {
-         
+
     },
     mounted(){
         //进入页面修改标题
@@ -53,6 +53,7 @@ export default {
         this.$emit('chageTitleShow',false);
         this.$emit('chageBackPage','index');
         this.$emit('chageRight',false);
+        sessionStorage.setItem('activePage','index'); 
         //检查是否登录
         this.isLogin = this.$cookies.isKey('token');
         console.log('用户登录状态',this.isLogin)
@@ -110,10 +111,17 @@ export default {
             }
             axiospost('/api/client/ypJyActivity/catagory',data,{}).then(res=>{
                 this.catagoryList = res.data.data;
-                if(this.curId == null){
-                    this.curId = this.catagoryList[0].id;
-                    this.getGoods();
+                this.curId = this.catagoryList[0].id;
+                for(var i of this.catagoryList){
+                    console.log(i.id,sessionStorage.getItem('curId'))
+                    if(sessionStorage.getItem('curId') == i.id){
+                        this.curId = sessionStorage.getItem('curId');
+                        break
+                    }else{
+                        this.curId = this.catagoryList[0].id;
+                    }
                 }
+                this.getGoods();
             },error =>{
                 
             })
@@ -139,6 +147,7 @@ export default {
         //前往商品详情
         goDetali(id){
             sessionStorage.setItem('goodsId',id);
+            sessionStorage.setItem('curId',this.curId)
             sessionStorage.setItem('activityId',this.activityId);
             this.$router.push({name: 'detail',});
         },
