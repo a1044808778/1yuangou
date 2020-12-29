@@ -34,7 +34,7 @@
                 <p><span>{{orderDetail.createTime}}</span></p> 
             </div>
         </div>
-        <div class='orderInfo' v-if='orderDetail.clientStatus == 3'>
+        <div class='orderInfo' v-if='orderDetail.clientStatus == 3 ||orderDetail.clientStatus == 8 ||orderDetail.clientStatus == 6 ||orderDetail.clientStatus == 9 || orderDetail.clientStatus == 11 '>
             <div class='orderListItem'>
                 <label for="">实付款</label>
                 <p><strong class='pay'><span>¥</span>{{orderDetail.settleMoney}}</strong></p> 
