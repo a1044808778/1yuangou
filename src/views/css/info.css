@@ -42,14 +42,14 @@ body{    overflow-y: scroll;}
 .wap-wrap {width:375px;margin:0 auto;font-size:14px; }
 .banner{width: 375px; height: 317px; position: relative;}
 .banner img.bannerImg{ width: 100%;}
-.userBox{ position: absolute;width:157px;height:65px; top: 0; left: 0; z-index: 9;}
+.userBox{ position: absolute;width:75px;height:24px; top: 14px; right: 0; z-index: 9;}
 .userBox p { position: relative;}
 /* .userBox p i.notLogin{ color: #007AFF; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;} */
-.userBox p i.notLogin{ color: #007AFF; font-weight: bold; }
-.userBox p i.logOut{ color: #999; font-weight: bold; border-left: 1px solid #E9E9E9; padding-left: 6px; margin-left:3px;}
-.userBox p span{ position: absolute; height:65px ; display: block; font-size: 12px;; line-height: 60px; width: 100px; text-align: center; right: 10px; top: 0;}
+.userBox p i.notLogin{ color: #FFF; }
+.userBox p i.logOut{ color: #FFF;   height: 12px; line-height: 12px; display: inline-block;  border-left: 1px solid #E9E9E9;  padding-left: 3px; margin-left:1px;}
+.userBox p span{display: block;  height: 24px; line-height: 24px;  color: #FFF; position: absolute; display: block; font-size: 10px; width:75px; text-align: center;   top: 0;}
 .userBox p img{ width: 100%;}
-.helpBox{ position: absolute; width: 90px; height: 40px;  right: 0; top: 10px; cursor: pointer;}
+.helpBox{  background: url(../images/rule.png) no-repeat center top;font-size: 10px; line-height: 24px; text-align: center; background-size: 75px 24px; position: absolute;width:75px;height:24px; right: 0; top: 44px; cursor: pointer; font-weight: normal; color: #333;}
 .banner .btnOrder{position: absolute; width: 375px; height: 46px; line-height: 46px; bottom: 0; text-align: center; font-size: 14px; background-size: 100% auto; background-image: url(../images/orderBannerBg.png); background-position: center center; background-repeat: no-repeat; cursor: pointer;}
 
 .proList{ background: url(../images/listbg.png) repeat-y center top; padding: 15px; box-sizing: border-box;}

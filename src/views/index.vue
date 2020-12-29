@@ -3,10 +3,10 @@
         <div class='visaBanner'>
             <img class='bannerImg' src="./images/visa.png" alt="">
             <div class='userBox'>
-                <p v-if='isLogin==true' @click='logOut'><img src="./images/user.png" /><span>{{mobile | fuserId}} <i class='logOut'>退出</i></span></p>
-                <p v-else @click='goLogin'><img src="./images/user.png" /><span style='color:#999;'><i class='notLogin' >登录</i></span></p>
+                <p v-if='isLogin==true' @click='logOut'><img src="./images/userNoLogin.png" /><span>{{mobile | fuserId}} 用户</span></p>
+                <p v-else @click='goLogin'><img src="./images/userNoLogin.png" /><span style='color:#999;'><i class='notLogin' >请登录</i></span></p>
             </div>
-            <div class='helpBox' @click='goRule' title='活动细则'></div>
+            <div class='helpBox' @click='goRule' title='活动说明'>活动说明</div>
         </div>
         <div class='btnVisaOrder' @click='goOrder'>我的订单 ></div>
         <div class='visaNav'>

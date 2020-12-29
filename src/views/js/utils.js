@@ -40,12 +40,10 @@ export function InitTime(time){
     }
 };
 
-//过滤用户ID
+//过滤用户ID 130****6707
 export function filtersUserId(str){  
-     var firstStr = str.substr(0,4); 
-    var middleStr = '***';
-    var tempStr = firstStr + middleStr;
-    return tempStr;
+     var firstStr = str.substr(7,11); 
+    return firstStr;
 };
  
 
