@@ -1,7 +1,7 @@
 <template>
     <div class="wap-wrap indexwarp"  id="page" >
         <div class='visaBanner'>
-            <img class='bannerImg' src="./images/visa.png" alt="">
+            <img class='bannerImg' :src="backgroundImg" alt="">
             <div class='userBox'>
                 <p v-if='isLogin==true' @click='logOut'><img src="./images/userNoLogin.png" /><span>{{mobile | fuserId}} 用户</span></p>
                 <p v-else @click='goLogin'><img src="./images/userNoLogin.png" /><span style='color:#999;'><i class='notLogin' >请登录</i></span></p>
@@ -26,6 +26,7 @@
 
 <script>
 import {filtersUserId,axiospost,axiosget} from './js/utils.js';
+import backgroundImg from './images/visa.png';
 export default {
     props: ['title'],
     filters: { 
@@ -39,7 +40,7 @@ export default {
             //login
             isLogin:false,userId:0,token:0,mobile:'',
             //page
-            catagoryList:[],goodsList:[],curId:null,activityId:0,
+            catagoryList:[],goodsList:[],curId:null,activityId:0,backgroundImg:'',
         }
     },
     
@@ -63,6 +64,8 @@ export default {
             this.userId = this.$cookies.get('userId');
             this.mobile = this.$cookies.get('mobile');
         };
+        //默认底图
+        this.backgroundImg = backgroundImg;
        //获取分类
        this.getCatagory();
        
@@ -137,6 +140,9 @@ export default {
             axiospost('/api/client/ypJyActivity/goodsList',data,{}).then(res=>{
                 this.activityId = res.data.data.activityId;
                 this.goodsList = res.data.data.goodsList;
+                if(res.data.data.backgroundImg !==''){
+                    this.backgroundImg = res.data.data.backgroundImg;
+                }
             },error =>{
                 
             })
