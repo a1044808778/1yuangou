@@ -9,7 +9,7 @@
             <dd>
                 <h3>{{orderDetail.goodsName}}</h3>
                 <h5>原价：{{orderDetail.subtotal}}</h5>
-                <p>Visa银联双标卡专享价 <strong><span>¥</span>{{orderDetail.settleMoney}}</strong></p>
+                <p>指定Visa双标卡专享价 <strong><span>¥</span>{{orderDetail.extPrice}}</strong></p>
             </dd>
         </dl>
         <div class='orderInfo'>

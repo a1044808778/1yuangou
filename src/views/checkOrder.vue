@@ -2,7 +2,7 @@
     <div class="wap-wrap payDetailCheckWarp pb80"  id="page" >
         <div class=' payDetailBox'>
             <h3>{{goodsMap.name}}<span>X1</span></h3>
-            <p><i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i></p>
+            <p><i>指定Visa双标卡专享价</i></p>
             <h5> <strong class='pay noright'><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong> <span class='oprice'>原价：{{goodsMap.sellPrice}}</span> </h5>
         </div>
         <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1 || goodsMap.rechargeAccountType == 2'>
@@ -80,6 +80,7 @@ export default {
         };
         axiospost('/api/client/ypJyActivity/goodsDetail',data2,{}).then(res=>{
             this.goodsMap = res.data.goodsMap;
+            this.$merchantCode = res.data.goodsMap.merchantCode;
             // this.$emit('chageTitle',this.goodsMap.name+this.$addTitle);
         },error =>{
         

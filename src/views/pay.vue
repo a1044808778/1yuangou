@@ -2,8 +2,8 @@
     <div class="wap-wrap payDetailWarp pb80"  id="page" >
         <div class=' payDetailBox'>
             <h3>{{orderDetail.goodsName}} <span>{{orderDetail.expireTime | times}}</span> </h3>
-            <p>Visa银联双标卡专享价</p>
-            <h5> <strong class='pay noright'><span>¥</span>{{orderDetail.settleMoney}}</strong> <span class='oprice'>原价：{{orderDetail.subtotal}}</span> </h5>
+            <p>指定Visa双标卡专享价</p>
+            <h5> <strong class='pay noright'><span>¥</span>{{orderDetail.extPrice}}</strong> <span class='oprice'>原价：{{orderDetail.subtotal}}</span> </h5>
         </div>
         <!-- <div class='payWays'>
             <h3>支付方式</h3>

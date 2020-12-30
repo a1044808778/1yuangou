@@ -4,9 +4,9 @@
         <dl class='detailBox'>
             <dt><img :src="goodsMap.entranceImg" /></dt>
             <dd>
-                <h3>{{goodsMap.name}}</h3>
+                <h3 style='width:100%'>{{goodsMap.name}}</h3>
                 <h5>原价：{{goodsMap.sellPrice}}</h5>
-                <p> <i v-if='goodsMap.reductionAmount>0'>Visa银联双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong></p>
+                <p> <i>指定Visa双标卡专享价</i>  <strong><span>¥</span>{{goodsMap.sellPrice - goodsMap.reductionAmount}}</strong></p>
             </dd>
         </dl>
         <div class='detailInput' v-if='goodsMap.rechargeAccountType == 1 || goodsMap.rechargeAccountType == 2'>
@@ -82,6 +82,7 @@ export default {
             };
             axiospost('/api/client/ypJyActivity/goodsDetail',data,{}).then(res=>{
                 this.goodsMap = res.data.goodsMap;
+                this.$merchantCode = res.data.goodsMap.merchantCode;
                 // this.$emit('chageTitle',this.goodsMap.name+this.$addTitle);
             },error =>{
             
@@ -116,7 +117,7 @@ export default {
                     this.btnBuy();
                 }else if(this.checked==1){
                     this.$dialog.alert({
-                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 下个月再来吧',
+                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 期待您下月光临',
                     }).then(() => {
 
                     });

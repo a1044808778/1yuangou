@@ -25,7 +25,7 @@
                         <span v-else>未知</span>
                     </h3>
                     <h5>{{item.createTime}}<span>原价：{{item.subtotal}}</span></h5>
-                    <p><i v-if='item.subtotal-item.settleMoney>0'>Visa银联双标卡专享价</i> <strong><span>¥</span>{{item.settleMoney}}</strong></p>
+                    <p><i>指定Visa双标卡专享价</i> <strong><span>¥</span>{{item.extPrice}}</strong></p>
                 </dd>
             </dl>
  
