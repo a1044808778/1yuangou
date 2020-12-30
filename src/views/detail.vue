@@ -117,7 +117,7 @@ export default {
                     this.btnBuy();
                 }else if(this.checked==1){
                     this.$dialog.alert({
-                        message: '本活动规定用户每月仅可购买一份商品\n 本月您已参与过该活动商品购买 \n 期待您下月光临',
+                        message: '本活动规定每位用户每月仅可购买一份一元购商品\n 本月您已参与过该活动 \n 期待您下月光临。',
                     }).then(() => {
 
                     });
