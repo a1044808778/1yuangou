@@ -28,9 +28,6 @@ Vue.prototype.$addTitle = '';
 
 
 
-
-
-
 sessionStorage.removeItem('curId');
 
 //网页传参

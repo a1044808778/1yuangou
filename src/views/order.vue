@@ -203,7 +203,8 @@ export default {
     methods: {
         //去详情
         goDetail(){
-            console.log(this.orderDetail)
+            sessionStorage.setItem('activityId',this.orderDetail.activityId); 
+            sessionStorage.setItem('fromPage','order'); 
             sessionStorage.setItem('goodsId',this.orderDetail.goodsId);
             this.$router.push({name: 'detail',});
 

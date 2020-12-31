@@ -8,9 +8,35 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta name="applicable-device" content="mobile">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
     <title>Visa一元购</title>
+    <style>
+        body{
+            -webkit-text-size-adjust: 100% !important;
+        }
+    </style>
+    <script>
+        //ios
+        //安卓
+        (function() {
+        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+            handleFontSize();
+            } else {
+            document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+            }
+            function handleFontSize() {
+            // 设置网页字体为默认大小
+            WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
+            // 重写设置网页字体大小的事件
+            WeixinJSBridge.on('menu:setfont', function() {
+                WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
+            });
+            }
+        })();
+
+    </script>
 </head>
     <body>
         <div id="app"></div>

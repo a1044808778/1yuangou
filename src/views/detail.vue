@@ -51,7 +51,14 @@ export default {
         this.$emit('chageTitleShow',true);
         this.$emit('chageBackPage','index');
         this.$emit('chageRight',false);
-        sessionStorage.setItem('activePage','detail'); 
+        sessionStorage.setItem('activePage','detail');
+        var fromPage = sessionStorage.getItem('fromPage');
+        if(fromPage){
+            this.$emit('chageBackPage',sessionStorage.getItem('fromPage'));
+            sessionStorage.removeItem('fromPage');
+        }else{
+            this.$emit('chageBackPage','index');
+        }
         //检查是否登录
         this.isLogin = this.$cookies.isKey('token');
         console.log('用户登录状态',this.isLogin)
